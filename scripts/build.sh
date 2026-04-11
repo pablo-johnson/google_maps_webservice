@@ -1,4 +1,6 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+set -euo pipefail
 
 dart pub get
 dart run build_runner build --delete-conflicting-outputs

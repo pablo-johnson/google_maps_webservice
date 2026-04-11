@@ -1,78 +1,91 @@
-# Contributing to the google maps webservice
+# Contributing to google_maps_webservice
 
-### What you will need
-- A Linux, Mac OS X, or Windows machine (note: to run and compile iOS specific parts you'll need access to a Mac OS X machine);
-- git (used for source version control, installation instruction can be found [here][git]);
-- Set up Dart SDK (installation instructions can be found [here][dart])
-- The Flutter SDK (installation instructions can be found [here][flutter]);
-- A personal GitHub account (if you don't have one, you can sign-up for free [here][github])
+## What you will need
 
-### Setting up your development environment
-- Fork https://github.com/lejard-h/google_maps_webservice.git into your own GitHub account. If you already have a fork and you're moving to a new computer, make sure you update you fork.
-- If you haven't configured your machine with an SSH key that's known to GitHub, then follow [GitHub's directions][git-ssh] to generate an SSH key.
-- Clone your forked repo on your local development machine:
-  ```sh
-    git clone git@github.com:<your_name_here>/google_maps_webservice.git
-  ``` 
-- Change into the google_maps_webservice directory: 
-  ```sh
-     cd google_maps_webservice
-  ```
-- Add an upstream to the original repo, so that you can fetch updates to the library from the master repository and not your clone:
-  ```sh
-      git remote add upstream git@github.com:lejard-h/google_maps_webservice.git
-  ```     
+- A Linux, macOS, or Windows machine.
+- Git for source control. See the [Git installation guide][git].
+- The Dart SDK. See the [Dart SDK installation guide][dart].
+- The Flutter SDK for running Flutter-based checks. See the [Flutter installation guide][flutter].
+- A GitHub account. See [GitHub][github].
 
-### Running the example project     
+## Setting up your development environment
 
-- Change into the example directory: 
-  ```sh
-   cd example 
-   export API_KEY="YOUR_KEY"
-   
-   dart directions.dart
-   dart geolocation.dart
-   dart places_autocomplete.dart
-   ```
+- Fork [google_maps_webservice][repo] into your own GitHub account.
+- If you do not already have an SSH key configured for GitHub, follow the [GitHub SSH key guide][git-ssh].
+- Clone your fork:
 
-  
-### Contribute
-We really appreciate contributions via GitHub pull requests. To contribute take the following steps:
+```sh
+git clone git@github.com:<your_name_here>/google_maps_webservice.git
+```
 
-- Make sure you are up to date with the latest code on the master:
-  ```sh
-     git fetch upstream
-     git checkout upstream/master -b <name_of_your_branch>
-  ```     
-- Apply your changes
-- Verify your changes and fix potential warnings/errors:
-  ```sh
-  dartfmt -w .
-  dartanalyzer .
-  pub run test
-  ```
- - Commit your changes:
-   ```sh
-     git commit -am "<your informative commit message>"
-   ```
- - Push changes to your fork:
-   ```sh
-     git push origin <name_of_your_branch>
-   ```
+- Change into the project directory:
 
-### Send us your pull request:
+```sh
+cd google_maps_webservice
+```
 
-Go to https://github.com/lejard-h/google_maps_webservice and click the "Compare & pull request" button.
+- Add the original repository as the upstream remote:
 
+```sh
+git remote add upstream git@github.com:lejard-h/google_maps_webservice.git
+```
 
-Please make sure you solved all warnings and errors reported by the static code analyses and that you fill in the full pull request template. Failing to do so will result in us asking you to fix it.
+## Running the example project
 
-    
+- Change into the example directory and set your API key:
 
+```sh
+cd example
+export API_KEY="YOUR_KEY"
 
-   [git]:<https://git-scm.com/>
-   [flutter]:<https://flutter.dev/docs/get-started/install>
-   [github]:<https://github.com/>
-   [git-ssh]:<https://help.github.com/articles/generating-ssh-keys/>
-   [git-repo-url]: <https://github.com/lejard-h/google_maps_webservice.git>
-   [dart]:<https://www.dartlang.org/tools/sdk>
+dart directions.dart
+dart geolocation.dart
+dart places_autocomplete.dart
+```
+
+## Contribute
+
+We appreciate contributions via GitHub pull requests.
+
+- Make sure your local branch is based on the latest upstream master branch:
+
+```sh
+git fetch upstream
+git checkout upstream/master -b <name_of_your_branch>
+```
+
+- Apply your changes.
+- Verify your changes and fix any warnings or errors:
+
+```sh
+dart pub get
+dart format .
+dart analyze
+dart test
+dart run build_runner build --delete-conflicting-outputs
+```
+
+- Commit your changes:
+
+```sh
+git commit -am "<your informative commit message>"
+```
+
+- Push changes to your fork:
+
+```sh
+git push origin <name_of_your_branch>
+```
+
+## Send us your pull request
+
+Open [the repository][repo] and click "Compare & pull request".
+
+Please make sure all formatting, analysis, tests, and generated files are up to date before opening the PR.
+
+[git]: https://git-scm.com/
+[flutter]: https://flutter.dev/docs/get-started/install
+[github]: https://github.com/
+[git-ssh]: https://help.github.com/articles/generating-ssh-keys/
+[dart]: https://dart.dev/get-dart
+[repo]: https://github.com/lejard-h/google_maps_webservice

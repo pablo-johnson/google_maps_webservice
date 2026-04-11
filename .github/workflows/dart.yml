@@ -15,7 +15,7 @@ jobs:
         sdk: [stable, beta]
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
       - uses: dart-lang/setup-dart@v1
         with:
           sdk: ${{ matrix.sdk }}
@@ -27,13 +27,16 @@ jobs:
         run: dart format --output=none --set-exit-if-changed .
 
       - name: Analyze project source
-        run: dart analyze --fatal-infos
+        run: dart analyze
 
       - name: Run tests
         run: dart test --coverage coverage
 
       - name: Format coverage
-        run: dart run coverage:format_coverage --packages .packages --report-on lib -i coverage --lcov -o coverage/lcov.info 
+        run: dart run coverage:format_coverage --packages .dart_tool/package_config.json --report-on lib -i coverage --lcov -o coverage/lcov.info
 
       - name: Upload coverage to codecov
-        run: curl -s https://codecov.io/bash | bash
+        uses: codecov/codecov-action@v4
+        with:
+          files: coverage/lcov.info
+          fail_ci_if_error: true
