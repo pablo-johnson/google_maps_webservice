@@ -1,6 +1,6 @@
 name: google_maps_webservice
 description: Google Maps Web Services [API](https://developers.google.com/maps/web-services)
-version: 0.2.0
+version: 0.2.1
 homepage: https://github.com/pablo-johnson/google_maps_webservice
 
 environment:

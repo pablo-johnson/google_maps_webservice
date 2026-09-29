@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Fix CI: drop the unused `flutter_test` dev dependency and generate `*.g.dart` code before analyzing
+
 ## 0.2.0
 
 - Migrate to Dart 3.8+ (`sdk: ^3.8.0`) and the current `json_serializable` stack
