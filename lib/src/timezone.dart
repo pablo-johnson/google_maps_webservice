@@ -14,17 +14,11 @@ const _timezoneUrl = '/timezone/json';
 /// https://developers.google.com/maps/documentation/timezone/start
 class GoogleMapsTimezone extends GoogleWebService {
   GoogleMapsTimezone({
-    String? apiKey,
-    String? baseUrl,
-    Client? httpClient,
-    Map<String, String>? apiHeaders,
-  }) : super(
-          apiKey: apiKey,
-          baseUrl: baseUrl,
-          apiPath: _timezoneUrl,
-          httpClient: httpClient,
-          apiHeaders: apiHeaders,
-        );
+    super.apiKey,
+    super.baseUrl,
+    super.httpClient,
+    super.apiHeaders,
+  }) : super(apiPath: _timezoneUrl);
 
   /// Retrieves time zone information for the specified location and the timestamp.
   /// If the language is specified, the time zone name will be localized to that
@@ -87,13 +81,13 @@ class TimezoneResponse extends GoogleResponseStatus {
   final String timeZoneName;
 
   TimezoneResponse({
-    required String status,
-    String? errorMessage,
+    required super.status,
+    super.errorMessage,
     required this.dstOffset,
     required this.rawOffset,
     required this.timeZoneId,
     required this.timeZoneName,
-  }) : super(status: status, errorMessage: errorMessage);
+  });
 
   factory TimezoneResponse.fromJson(Map<String, dynamic> json) =>
       _$TimezoneResponseFromJson(json);

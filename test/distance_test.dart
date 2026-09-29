@@ -26,13 +26,15 @@ Future<void> main() async {
             origin: ['Bakshi Bazar Road, Dhaka'].toList(),
             destination: ['Rd 11, Dhaka 1212'].toList(),
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': 'Bakshi Bazar Road, Dhaka',
-              'destinations': 'Rd 11, Dhaka 1212',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': 'Bakshi Bazar Road, Dhaka',
+                  'destinations': 'Rd 11, Dhaka 1212',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -42,13 +44,15 @@ Future<void> main() async {
             origin: [Location(lat: 23.721017, lng: 90.394358)].toList(),
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -58,13 +62,15 @@ Future<void> main() async {
             origin: ['10 Girda Urdu Rd, Dhaka'].toList(),
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '10 Girda Urdu Rd, Dhaka',
-              'destinations': '23.762488,90.373025',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '10 Girda Urdu Rd, Dhaka',
+                  'destinations': '23.762488,90.373025',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -75,8 +81,10 @@ Future<void> main() async {
             destination: ['Marseilles, France'].toList(),
           );
         } catch (e) {
-          expect((e as ArgumentError).message,
-              equals("'origin' must be a '$String' or a '$Location'"));
+          expect(
+            (e as ArgumentError).message,
+            equals("'origin' must be a '$String' or a '$Location'"),
+          );
         }
 
         try {
@@ -85,8 +93,10 @@ Future<void> main() async {
             destination: [10].toList(),
           );
         } catch (e) {
-          expect((e as ArgumentError).message,
-              equals("'destination' must be a '$String' or a '$Location'"));
+          expect(
+            (e as ArgumentError).message,
+            equals("'destination' must be a '$String' or a '$Location'"),
+          );
         }
       });
 
@@ -97,14 +107,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             avoids: [RouteType.tolls, RouteType.indoor],
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'avoid': 'tolls|indoor',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'avoid': 'tolls|indoor',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -115,14 +127,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             travelMode: TravelMode.driving,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'mode': 'DRIVING',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'mode': 'DRIVING',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
         expect(
           distanceMatrix.buildUrl(
@@ -130,14 +144,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             travelMode: TravelMode.bicycling,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'mode': 'BICYCLING',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'mode': 'BICYCLING',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
 
         expect(
@@ -146,14 +162,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             travelMode: TravelMode.walking,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'mode': 'WALKING',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'mode': 'WALKING',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
 
         expect(
@@ -162,14 +180,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             travelMode: TravelMode.transit,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'mode': 'TRANSIT',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'mode': 'TRANSIT',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -180,14 +200,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             languageCode: 'Bangali',
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'language': 'Bangali',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'language': 'Bangali',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -198,14 +220,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             alternative: true,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'alternative': 'true',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'alternative': 'true',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
         expect(
           distanceMatrix.buildUrl(
@@ -213,13 +237,15 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             alternative: false,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -230,14 +256,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             unit: Unit.metric,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'units': 'metric',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'units': 'metric',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
 
         expect(
@@ -246,14 +274,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             unit: Unit.imperial,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'units': 'imperial',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'units': 'imperial',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -265,14 +295,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             arrivalTime: d,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'arrival_time': '$d',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'arrival_time': '$d',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
         expect(
           distanceMatrix.buildUrl(
@@ -280,14 +312,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             arrivalTime: DateTime.fromMillisecondsSinceEpoch(d * 1000),
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'arrival_time': '$d',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'arrival_time': '$d',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -299,14 +333,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             departureTime: d,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'departure_time': '$d',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'departure_time': '$d',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
         expect(
           distanceMatrix.buildUrl(
@@ -314,14 +350,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             departureTime: DateTime.fromMillisecondsSinceEpoch(d * 1000),
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'departure_time': '$d',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'departure_time': '$d',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -332,14 +370,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             departureTime: 'now',
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'departure_time': 'now',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'departure_time': 'now',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -350,14 +390,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             trafficModel: TrafficModel.bestGuess,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'traffic_model': 'best_guess',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'traffic_model': 'best_guess',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
 
         expect(
@@ -366,14 +408,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             trafficModel: TrafficModel.optimistic,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'traffic_model': 'optimistic',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'traffic_model': 'optimistic',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
         expect(
           distanceMatrix.buildUrl(
@@ -381,14 +425,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             trafficModel: TrafficModel.pessimistic,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'traffic_model': 'pessimistic',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'traffic_model': 'pessimistic',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -399,14 +445,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             transitMode: [TransitMode.bus],
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'transit_mode': 'bus',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'transit_mode': 'bus',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
 
         expect(
@@ -415,14 +463,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             transitMode: [TransitMode.rail],
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'transit_mode': 'rail',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'transit_mode': 'rail',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
 
         expect(
@@ -436,14 +486,16 @@ Future<void> main() async {
               TransitMode.tram,
             ],
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'transit_mode': 'rail|train|subway|tram',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'transit_mode': 'rail|train|subway|tram',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -454,14 +506,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             transitRoutingPreference: TransitRoutingPreferences.lessWalking,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'transit_routing_preference': 'less_walking',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'transit_routing_preference': 'less_walking',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
 
         expect(
@@ -470,14 +524,16 @@ Future<void> main() async {
             destination: [Location(lat: 23.762488, lng: 90.373025)].toList(),
             transitRoutingPreference: TransitRoutingPreferences.fewerTransfers,
           ),
-          _uri.replace(
-            queryParameters: {
-              'origins': '23.721017,90.394358',
-              'destinations': '23.762488,90.373025',
-              'transit_routing_preference': 'fewer_transfers',
-              'key': apiKey,
-            },
-          ).toString(),
+          _uri
+              .replace(
+                queryParameters: {
+                  'origins': '23.721017,90.394358',
+                  'destinations': '23.762488,90.373025',
+                  'transit_routing_preference': 'fewer_transfers',
+                  'key': apiKey,
+                },
+              )
+              .toString(),
         );
       });
 
@@ -487,18 +543,37 @@ Future<void> main() async {
         expect(response.isOkay, isTrue);
         expect(response.rows, hasLength(1));
         expect(response.originAddresses, hasLength(1));
-        expect(response.originAddresses.first,
-            equals('Bakshi Bazar Road, Dhaka, Bangladesh'));
+        expect(
+          response.originAddresses.first,
+          equals('Bakshi Bazar Road, Dhaka, Bangladesh'),
+        );
         expect(response.destinationAddresses, hasLength(1));
-        expect(response.destinationAddresses.first,
-            equals('Rd 11, Dhaka 1212, Bangladesh'));
+        expect(
+          response.destinationAddresses.first,
+          equals('Rd 11, Dhaka 1212, Bangladesh'),
+        );
         expect(response.rows.first.elements, hasLength(1));
-        expect(response.rows.first.elements.first.duration.text,
-            equals('29 mins'));
+        expect(
+          response.rows.first.elements.first.duration.text,
+          equals('29 mins'),
+        );
         expect(response.rows.first.elements.first.duration.value, equals(1725));
         expect(
-            response.rows.first.elements.first.distance.text, equals('9.2 km'));
+          response.rows.first.elements.first.distance.text,
+          equals('9.2 km'),
+        );
         expect(response.rows.first.elements.first.distance.value, equals(9247));
+        expect(response.rows.first.elements.first.elementStatus, equals('OK'));
+      });
+
+      test('decode error response defaults empty collections', () {
+        final response = DistanceResponse.fromJson(_errorResponseExample);
+
+        expect(response.isDenied, isTrue);
+        expect(response.errorMessage, equals('API key is invalid.'));
+        expect(response.rows, isEmpty);
+        expect(response.originAddresses, isEmpty);
+        expect(response.destinationAddresses, isEmpty);
       });
     });
   });
@@ -513,10 +588,15 @@ final _responseExample = {
         {
           'distance': {'text': '9.2 km', 'value': 9247},
           'duration': {'text': '29 mins', 'value': 1725},
-          'status': 'OK'
-        }
-      ]
-    }
+          'status': 'OK',
+        },
+      ],
+    },
   ],
-  'status': 'OK'
+  'status': 'OK',
+};
+
+final _errorResponseExample = {
+  'status': 'REQUEST_DENIED',
+  'error_message': 'API key is invalid.',
 };

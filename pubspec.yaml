@@ -1,6 +1,6 @@
 name: google_maps_webservice
 description: Google Maps Web Services [API](https://developers.google.com/maps/web-services)
-version: 0.0.20-nullsafety.5
+version: 0.1.0
 homepage: https://github.com/pablo-johnson/google_maps_webservice
 
 environment:
@@ -8,14 +8,14 @@ environment:
 
 dependencies:
   http: ^1.2.2
-  meta: ^1.12.0
+  meta: ^1.17.0
   json_annotation: ^4.11.0
 
 dev_dependencies:
-  test: ^1.25.8
+  test: ^1.30.0
   flutter_test:
     sdk: flutter
   build_runner: ^2.4.13
   json_serializable: ^6.8.0
   coverage: ^1.11.1
-  lints: ^5.1.1
+  lints: ^6.1.0

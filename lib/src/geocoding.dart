@@ -14,17 +14,11 @@ const _geocodeUrl = '/geocode/json';
 /// https://developers.google.com/maps/documentation/geocoding/start
 class GoogleMapsGeocoding extends GoogleWebService {
   GoogleMapsGeocoding({
-    String? apiKey,
-    String? baseUrl,
-    Client? httpClient,
-    Map<String, String>? apiHeaders,
-  }) : super(
-          apiKey: apiKey,
-          baseUrl: baseUrl,
-          apiPath: _geocodeUrl,
-          httpClient: httpClient,
-          apiHeaders: apiHeaders,
-        );
+    super.apiKey,
+    super.baseUrl,
+    super.httpClient,
+    super.apiHeaders,
+  }) : super(apiPath: _geocodeUrl);
 
   Future<GeocodingResponse> searchByAddress(
     String address, {
@@ -155,13 +149,10 @@ class GeocodingResponse extends GoogleResponseStatus {
   final List<GeocodingResult> results;
 
   GeocodingResponse({
-    required String status,
-    String? errorMessage,
+    required super.status,
+    super.errorMessage,
     required this.results,
-  }) : super(
-          status: status,
-          errorMessage: errorMessage,
-        );
+  });
 
   factory GeocodingResponse.fromJson(Map<String, dynamic> json) =>
       _$GeocodingResponseFromJson(json);
@@ -170,24 +161,20 @@ class GeocodingResponse extends GoogleResponseStatus {
 
 @JsonSerializable()
 class GeocodingResult {
-  @JsonKey(defaultValue: <String>[])
   final List<String> types;
 
   /// JSON formatted_address
   final String? formattedAddress;
 
   /// JSON address_components
-  @JsonKey(defaultValue: <AddressComponent>[])
   final List<AddressComponent> addressComponents;
 
   /// JSON postcode_localities
-  @JsonKey(defaultValue: <String>[])
   final List<String> postcodeLocalities;
 
   final Geometry geometry;
 
   /// JSON partial_match
-  @JsonKey(defaultValue: false)
   final bool partialMatch;
 
   /// JSON place_id

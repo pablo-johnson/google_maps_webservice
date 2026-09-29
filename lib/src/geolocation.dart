@@ -16,16 +16,11 @@ const _geolocationUrl = '/geolocation/v1/geolocate';
 //// https://developers.google.com/maps/documentation/geolocation/intro
 class GoogleMapsGeolocation extends GoogleWebService {
   GoogleMapsGeolocation({
-    String? apiKey,
+    super.apiKey,
     String? baseUrl,
-    Client? httpClient,
-    Map<String, String>? apiHeaders,
-  }) : super(
-          apiKey: apiKey,
-          baseUrl: baseUrl ?? _baseUrl,
-          apiPath: _geolocationUrl,
-          httpClient: httpClient,
-        );
+    super.httpClient,
+    super.apiHeaders,
+  }) : super(baseUrl: baseUrl ?? _baseUrl, apiPath: _geolocationUrl);
 
   Future<GeolocationResponse> getGeolocation({
     int? homeMobileCountryCode,
@@ -110,8 +105,9 @@ class GoogleMapsGeolocation extends GoogleWebService {
     }
 
     if (wifiAccessPoints.isNotEmpty) {
-      params['wifiAccessPoints'] =
-          wifiAccessPoints.map((w) => w.toJson()).toList();
+      params['wifiAccessPoints'] = wifiAccessPoints
+          .map((w) => w.toJson())
+          .toList();
     }
 
     return params;
@@ -164,11 +160,7 @@ class GeolocationResponse {
   final num? accuracy;
   final GeolocationErrorResponse? error;
 
-  GeolocationResponse({
-    this.location,
-    this.accuracy,
-    this.error,
-  });
+  GeolocationResponse({this.location, this.accuracy, this.error});
 
   bool get isOkay => error == null;
 
@@ -198,9 +190,9 @@ class CellTower extends _AccessObject {
     required this.mobileCountryCode,
     required this.mobileNetworkCode,
     this.timingAdvance,
-    num? age,
-    num? signalStrength,
-  }) : super(age: age, signalStrength: signalStrength);
+    super.age,
+    super.signalStrength,
+  });
 
   factory CellTower.fromJson(Map<String, dynamic> json) =>
       _$CellTowerFromJson(json);
@@ -214,15 +206,12 @@ class WifiAccessPoint extends _AccessObject {
   final num? signalToNoiseRatio;
 
   WifiAccessPoint({
-    num? age,
-    num? signalStrength,
+    super.age,
+    super.signalStrength,
     this.macAddress,
     this.channel,
     this.signalToNoiseRatio,
-  }) : super(
-          age: age,
-          signalStrength: signalStrength,
-        );
+  });
 
   factory WifiAccessPoint.fromJson(Map<String, dynamic> json) =>
       _$WifiAccessPointFromJson(json);

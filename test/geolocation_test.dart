@@ -39,24 +39,40 @@ Future<void> main() async {
       expect(response.error?.code, 400);
       expect(response.error?.message, 'Parse Error');
     });
+
+    test('Decode response with missing optional values', () {
+      final response = GeolocationResponse.fromJson({});
+
+      expect(response.isOkay, isTrue);
+      expect(response.location, isNull);
+      expect(response.accuracy, isNull);
+      expect(response.error, isNull);
+    });
+
+    test('Decode error response defaults empty errors list', () {
+      final response = GeolocationResponse.fromJson({
+        'error': {'code': 403, 'message': 'Access denied'},
+      });
+
+      expect(response.isOkay, isFalse);
+      expect(response.error?.errors, isEmpty);
+      expect(response.error?.code, 403);
+      expect(response.error?.message, 'Access denied');
+    });
   });
 }
 
 final _responseExample = {
   'location': {'lat': 33.3632256, 'lng': -117.0874871},
-  'accuracy': 20
+  'accuracy': 20,
 };
 
 final _errorExample = {
   'error': {
     'errors': [
-      {
-        'domain': 'global',
-        'reason': 'parseError',
-        'message': 'Parse Error',
-      }
+      {'domain': 'global', 'reason': 'parseError', 'message': 'Parse Error'},
     ],
     'code': 400,
-    'message': 'Parse Error'
-  }
+    'message': 'Parse Error',
+  },
 };

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.0
+
+- Migrate to Dart 3.8+ (`sdk: ^3.8.0`) and the current `json_serializable` stack
+- Fix core enum serialization helpers
+- Generated `*.g.dart` files are no longer versioned; run `build_runner` to generate them
+- Use super-parameters in constructors and drop unnecessary imports
+- Bump `meta`, `test` and `lints`; rewrite tests for directions, distance, geocoding and places
+
 ## 0.0.20-nullsafety.5
 
 - Fix `dayTimeToDateTime` (https://github.com/lejard-h/google_maps_webservice/issues/113)
