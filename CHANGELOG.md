@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.1.0
+## 0.2.0
 
 - Migrate to Dart 3.8+ (`sdk: ^3.8.0`) and the current `json_serializable` stack
 - Fix core enum serialization helpers
