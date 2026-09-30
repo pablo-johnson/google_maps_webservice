@@ -19,3 +19,4 @@ test/\.test_coverage\.dart
 *.g.dart
 *.freezed.dart
 *.mocks.dart
+.DS_Store
